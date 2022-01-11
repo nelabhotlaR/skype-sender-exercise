@@ -1,6 +1,8 @@
 import json
+# to send message to one of the qxf2 skype channel using endpoint
+
 import requests
-from requests.models import Response
+
 import conf
 
 BASE_URL = 'https://skype-sender.qxf2.com/send-message'
@@ -11,7 +13,7 @@ def test_send_msg(msg_to_post, channel_id = conf.channel_id):
 
     data = {'API_KEY' : conf.A_SECRET_API_KEY_ARUN_GIVES_YOU,
     'msg' : msg_to_post,
-    'channel' : conf.channel_id}
+    'channel' : channel_id}
 
     Response = requests.post(BASE_URL,data=json.dumps(data), headers=newHeaders)
     print(Response.status_code)
